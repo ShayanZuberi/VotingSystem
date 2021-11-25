@@ -30,11 +30,15 @@ public class HelloController {
                 ResultSet rs = statement.executeQuery(query);
                 rs.next();
                 int count = rs.getInt(1);
-                System.out.println("QUERY: "+query);
-                System.out.println("COUNT: "+count);
+                //System.out.println("QUERY: "+query);
+                //System.out.println("COUNT: "+count);
+                query = "INSERT into temp values(" + id + ")";
+                rs = statement.executeQuery(query);
+                query = "commit";
+                rs = statement.executeQuery(query);
                 if (count == 0){    //new voter
                     query = "INSERT into citizen values("+ id +")";
-                    System.out.println("QUERY: "+query);
+                    //System.out.println("QUERY: "+query);
                     rs = statement.executeQuery(query);
                     rs.next();
                     System.out.println("Inserted into citizen");

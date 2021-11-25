@@ -18,6 +18,8 @@ CREATE TABLE vote(
     FOREIGN KEY (party_id) REFERENCES party(party_id)
 );
 
+CREATE TABLE temp(party_id NUMBER(2));
+
 INSERT INTO party values (1, 'PTI');
 INSERT INTO party values (2, 'PMLN');
 INSERT INTO party values (3, 'PPP');
