@@ -1,6 +1,7 @@
 module com.example.votingsystem {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.votingsystem to javafx.fxml;

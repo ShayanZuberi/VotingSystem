@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.votingsystem.HelloController">
    <children>
-      <Button layoutX="105.0" layoutY="293.0" mnemonicParsing="false" onAction="#BtnProceedClicked" prefHeight="32.0" prefWidth="141.0" text="Proceed" textAlignment="CENTER" textFill="#308047">
+      <Button layoutX="105.0" layoutY="245.0" mnemonicParsing="false" onAction="#BtnProceedClicked" prefHeight="32.0" prefWidth="141.0" text=" Proceed to Vote " textAlignment="CENTER" textFill="#308047">
          <effect>
             <Blend />
          </effect>
       </Button>
-      <TextArea id="cnic" fx:id="cnic" accessibleRole="IMAGE_VIEW" layoutX="55.0" layoutY="182.0" prefHeight="37.0" prefWidth="241.0" promptText="Cnic" />
-      <TextField alignment="CENTER" editable="false" layoutX="55.0" layoutY="34.0" opacity="0.53" prefHeight="64.0" prefWidth="241.0" text="Voting System">
+      <TextArea id="cnic" fx:id="cnic" accessibleRole="IMAGE_VIEW" layoutX="55.0" layoutY="153.0" prefHeight="37.0" prefWidth="241.0" promptText="Cnic" />
+      <TextField alignment="CENTER" editable="false" layoutX="46.0" layoutY="27.0" opacity="0.53" prefHeight="64.0" prefWidth="260.0" text="Electronic Voting System">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
+      <Button fx:id="resultsBtn" layoutX="58.0" layoutY="319.0" mnemonicParsing="false" onAction="#BtnResultsPressed" prefHeight="37.0" prefWidth="235.0" text="View Results" textFill="#5a5390" />
    </children>
 </AnchorPane>
