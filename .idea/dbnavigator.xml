@@ -24,24 +24,18 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="f466eb72-ba3f-4f23-815a-61979347f9e3">
-        <schema name="PUBLIC" object-types="table, view, materialized view, synonym, sequence, function, package, type" />
-        <schema name="SYS" object-types="table, view, materialized view, synonym, type, column" />
-        <schema name="SYSTEM" object-types="table, view, materialized view, synonym, sequence, function, package, type, package function, package type, type function" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="f466eb72-ba3f-4f23-815a-61979347f9e3">
-      <console name="Connection" type="STANDARD" schema="SYSTEM" session="Main" />
+    <connection id="49f0e7cb-3daf-4fd1-abde-819237a4bb26">
+      <console name="Connection mySQL" type="STANDARD" schema="mysql" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="f466eb72-ba3f-4f23-815a-61979347f9e3" />
+    <connection id="49f0e7cb-3daf-4fd1-abde-819237a4bb26" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -67,27 +61,30 @@
     <last-used-operator value="EQUAL" />
     <filters />
   </component>
+  <component name="DBNavigator.Project.ParserDiagnosticsManager">
+    <diagnostics-history />
+  </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
     <recently-used-interfaces />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="f466eb72-ba3f-4f23-815a-61979347f9e3" active="true">
+      <connection id="49f0e7cb-3daf-4fd1-abde-819237a4bb26" active="true">
         <database>
-          <name value="Connection" />
+          <name value="Connection mySQL" />
           <description value="" />
-          <database-type value="ORACLE" />
+          <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="21.0" />
-          <driver-source value="EXTERNAL" />
-          <driver-library value="C:\ojdbc11.jar" />
-          <driver value="oracle.jdbc.OracleDriver" />
-          <url-type value="SERVICE" />
+          <database-version value="8.0" />
+          <driver-source value="BUILTIN" />
+          <driver-library value="" />
+          <driver value="" />
+          <url-type value="DATABASE" />
           <host value="localhost" />
-          <port value="1521" />
-          <database value="XE" />
+          <port value="3306" />
+          <database value="mysql" />
           <type value="USER_PASSWORD" />
-          <user value="system" />
+          <user value="root" />
           <deprecated-pwd value="MTIzNDU=" />
         </database>
         <properties>

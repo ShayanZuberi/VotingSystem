@@ -18,32 +18,33 @@ public class HelloController {
     void BtnProceedClicked(ActionEvent event) {
         try {
             String id = cnic.getText();
-            Stage win = (Stage) cnic.getScene().getWindow();
             //working with the cnic
             try{
-                Class.forName("oracle.jdbc.driver.OracleDriver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 System.out.println("Driver Loaded Successfully");
-                Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "12345");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys","root","12345");
                 System.out.println("Connection Established!");
                 Statement statement = con.createStatement();
-                String query = "Select count(*) from citizen where cnic =" + id;
+                String query = "Select count(*) from votingsystem.citizen where cnic =" + id;
                 ResultSet rs = statement.executeQuery(query);
                 rs.next();
                 int count = rs.getInt(1);
+
                 //System.out.println("QUERY: "+query);
-                //System.out.println("COUNT: "+count);
-                query = "INSERT into temp values(" + id + ")";
-                rs = statement.executeQuery(query);
-                query = "commit";
-                rs = statement.executeQuery(query);
+                //System.out.println("COUNT: "+count)
                 if (count == 0){    //new voter
-                    query = "INSERT into citizen values("+ id +")";
+                    query = "INSERT into votingsystem.citizen values("+ id +")";
                     //System.out.println("QUERY: "+query);
-                    rs = statement.executeQuery(query);
-                    rs.next();
+                    statement.execute(query);
+                    //rs.next();
                     System.out.println("Inserted into citizen");
                     query = "commit";
-                    rs = statement.executeQuery(query);
+                    statement.execute(query);
+                    query = "INSERT into votingsystem.temp values(" + id + ")";
+                    statement.execute(query);
+                    query = "commit";
+                    statement.execute(query);
+                    Stage win = (Stage) cnic.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CastVote.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     win.setTitle("Voting System");
@@ -51,13 +52,18 @@ public class HelloController {
                     win.show();
                 }
                 else if (count == 1){
-                    query = "SELECT count(*) from vote where cnic = " + id;
+                    query = "SELECT count(*) from votingsystem.vote where cnic = " + id;
                     System.out.println("QUERY: "+query);
                     rs = statement.executeQuery(query);
                     rs.next();
                     int vCount = rs.getInt(1);
                     System.out.println("VOTE COUNT: "+vCount);
                     if (vCount == 0){   //can cast a vote
+                        query = "INSERT into votingsystem.temp values(" + id + ")";
+                        statement.execute(query);
+                        query = "commit";
+                        statement.execute(query);
+                        Stage win = (Stage) cnic.getScene().getWindow();
                         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CastVote.fxml"));
                         Scene scene = new Scene(fxmlLoader.load());
                         win.setTitle("Voting System");
@@ -78,10 +84,12 @@ public class HelloController {
             }
 
 
+
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     @FXML
